@@ -1,17 +1,45 @@
-.idea
-.DS_Store
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+
+# Eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
 *.swp
 *~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
 
-build/
-adhoc/
+# External tool builders
+.externalToolBuilders/
 
-.xcodeproj/ !*.xcodeproj/project.pbxproj
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-*.mode1v3
-*.mode2v3
+# CDT-specific
+.cproject
 
-build/
-
-xcuserdata
-assets/www2
+# PDT-specific
+.buildpath
