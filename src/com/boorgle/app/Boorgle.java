@@ -22,6 +22,7 @@ package com.boorgle.app;
 import android.app.Activity;
 import android.os.Bundle;
 import org.apache.cordova.*;
+import android.content.Intent;
 
 public class Boorgle extends DroidGap
 {
@@ -31,5 +32,19 @@ public class Boorgle extends DroidGap
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index.html");
     }
-}
 
+    @Override
+    public Object onMessage(String id, Object obj) {
+
+        if (id.equals("onPageStarted")) {
+
+            final Intent intent = getIntent();
+            if(intent.getDataString()!= "" && intent.getDataString()!= null){
+                String url = intent.getDataString();
+                this.sendJavascript("handleOpenURL('" + url + "');");
+            }
+
+        }
+        return super.onMessage(id, obj);
+    }
+}
