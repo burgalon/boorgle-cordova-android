@@ -30,7 +30,8 @@ public class Boorgle extends DroidGap
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        super.loadUrl("file:///android_asset/www/index.html");
+        super.setIntegerProperty("splashscreen", R.drawable.splash);
+        super.loadUrl("file:///android_asset/www/index.html", 10000);
     }
 
     @Override
@@ -46,5 +47,15 @@ public class Boorgle extends DroidGap
 
         }
         return super.onMessage(id, obj);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        if(intent.getDataString()!= "" && intent.getDataString()!= null){
+            String url = intent.getDataString();
+            this.sendJavascript("handleOpenURL('" + url + "');");
+        }
     }
 }
